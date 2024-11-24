@@ -3,56 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signature Verification</title>
+  <title>Signature Authentication System</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Signature Verification</h1>
-    <p>Exploring advanced AI techniques for secure and reliable signature verification.</p>
+    <h1>Signature Authentication System</h1>
+    <p>Using Deep Learning for Secure and Reliable Signature Verification</p>
   </header>
 
   <nav>
-    <a href="#about">About</a>
+    <a href="#abstract">Abstract</a>
     <a href="#methodology">Methodology</a>
     <a href="#results">Results</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <main>
-    <section id="about">
-      <h2>About the Project</h2>
-      <p>This project focuses on developing a robust AI-based system for verifying handwritten signatures to prevent fraud and enhance authentication systems.</p>
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        This project develops a signature authentication system using a deep learning approach. EfficientNetV2 is utilized as the shared-weight encoder, transforming signature images into embeddings. A Contrastive Loss function trains the model to minimize embedding distances for similar signatures and maximize them for dissimilar ones. The system uses RGB images as color is irrelevant for signature analysis. During testing, a threshold of <b>0.00093</b> determines whether signatures are genuine or forged. The model was trained and evaluated on the <a href="https://www.kaggle.com/datasets/robinreni/signature-verification-dataset" target="_blank">Signature Verification Dataset</a>.
+      </p>
     </section>
 
     <section id="methodology">
       <h2>Methodology</h2>
-      <p>We use deep learning models combined with preprocessing techniques to analyze and verify signatures.</p>
-      <p>Key techniques include:</p>
       <ul>
-        <li>Image preprocessing and feature extraction</li>
-        <li>Convolutional Neural Networks (CNNs)</li>
-        <li>Similarity metrics such as cosine similarity</li>
+        <li>Input images are preprocessed and converted to RGB.</li>
+        <li>EfficientNetV2 is used as an encoder with shared weights for pairwise signature comparisons.</li>
+        <li>Embeddings are passed through the Contrastive Loss function:</li>
       </ul>
+      <div class="equation">
+        <p>
+          <b>Contrastive Loss:</b><br>
+          <i>𝓛 = 1/N Σ [(1 − 𝑦) · 𝑑²(x₁, x₂) + 𝑦 · max(0, 𝑚 − 𝑑(x₁, x₂))²]</i><br>
+          where 𝑑(x₁, x₂) is the Euclidean distance between embeddings, 𝑦 is the label, and 𝑚 is the margin.
+        </p>
+      </div>
     </section>
 
     <section id="results">
       <h2>Results</h2>
-      <p>The system achieves high accuracy in distinguishing between genuine and forged signatures.</p>
-      <div class="images">
-        <img src="images/sample1.png" alt="Sample 1">
-        <img src="images/sample2.png" alt="Sample 2">
+      <p>
+        The model achieved effective results in distinguishing genuine from forged signatures. Testing used a contrastive distance threshold of <b>0.00093</b>:
+      </p>
+      <ul>
+        <li><b>𝑑(x₁, x₂) &lt; 0.00093:</b> Genuine signatures</li>
+        <li><b>𝑑(x₁, x₂) ≥ 0.00093:</b> Forged signatures</li>
+      </ul>
+      <p>The workflow is illustrated below:</p>
+      <div class="diagram">
+        <img src="blockdiagram.png" alt="Workflow Diagram" />
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>For more information, please contact <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
+      <p>For more details, feel free to reach out:</p>
+      <ul>
+        <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+        <li>GitHub: <a href="https://github.com/your-username" target="_blank">https://github.com/your-username</a></li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2024 <a href="https://github.com/your-username">Your Name</a>. All rights reserved.</p>
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
   </footer>
 </body>
 </html>
