@@ -1,29 +1,37 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
   color: #333;
+  background-color: #f8f9fa;
 }
 
 header {
   background: #007bff;
   color: white;
-  padding: 1rem 0;
+  padding: 2rem;
   text-align: center;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
 nav {
+  background: #333;
+  color: white;
   text-align: center;
   padding: 1rem 0;
-  background: #333;
 }
 
 nav a {
   color: white;
   margin: 0 15px;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 nav a:hover {
@@ -40,18 +48,41 @@ section {
   margin-bottom: 2rem;
 }
 
-.images {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
+h2 {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+  color: #007bff;
 }
 
-.images img {
-  width: 45%;
-  border: 2px solid #333;
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Diagram */
+.diagram img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 1rem auto;
+  border: 2px solid #ccc;
   border-radius: 5px;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem 0;
